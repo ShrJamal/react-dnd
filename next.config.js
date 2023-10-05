@@ -9,7 +9,7 @@ const withPWA = require('next-pwa')({
  * @link https://nextjs.org/docs/api-reference/next.config.js/introduction
  * @type {import('next').NextConfig}*/
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: [''],
   },

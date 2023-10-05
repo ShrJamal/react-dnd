@@ -7,6 +7,7 @@ import { MdMoreVert } from 'react-icons/md'
 import { zoomAtom } from '~/components/Zooming/zoomAtom'
 import clsx from '~/lib/clsx'
 import type { CardType } from '~/lib/types'
+import { cardsArray, ydoc } from '~/lib/yjs'
 
 import useToggleSettings from '../SettingsDialog/useToggleSettings'
 import AddCardBtn from './AddCard/AddCardBtn'
@@ -53,7 +54,14 @@ export default function CardItem({ item, isBeingDragged }: Props) {
       {!isBeingDragged && (
         <button
           className="btn btn-xs btn-circle btn-ghost absolute top-1 right-1"
-          onClick={() => toggleSettings(item)}
+          onClick={() => {
+            ydoc.transact(() => {
+              const idx = cardsArray
+                .toArray()
+                .findIndex((c) => c.id === item.id)
+              if (idx !== -1) cardsArray.delete(idx)
+            })
+          }}
         >
           <MdMoreVert className="text-xl" />
         </button>

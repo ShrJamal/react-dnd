@@ -2,6 +2,7 @@ import { atom, useSetAtom } from 'jotai'
 import { nanoid } from 'nanoid'
 
 import { CardType } from '~/lib/types'
+import { cardsArray } from '~/lib/yjs'
 
 import { cardsAtom } from '../../useCardsAtom'
 
@@ -28,7 +29,7 @@ const addCardAtom = atom(
       cards.splice(row - 1, 0, newCard)
       cards.forEach((v, i) => (v.row = i + 1))
     }
-    set(cardsAtom, [...allCards, newCard])
+    cardsArray.push([newCard])
   },
 )
 
