@@ -75,3 +75,4 @@ pnpm-debug.log*
 
 # ContentLayer
 .contentlayer
+.env

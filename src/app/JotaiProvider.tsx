@@ -13,9 +13,8 @@ type Props = {
   children?: ReactNode
   initCards: CardType[]
 }
-export default function JotaiProvider({ initCards, children }: Props) {
+export default function JotaiProvider({ children }: Props) {
   const [store] = useState(() => createStore())
-  store.set(cardsAtom, initCards)
   return (
     <Provider store={store}>
       {children}

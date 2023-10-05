@@ -3,7 +3,7 @@
 import { ReactNode, useEffect } from 'react'
 import { useSetAtom } from 'jotai'
 
-import { cardsArray } from '~/lib/yjs'
+import { cardsArray, ydoc } from '~/lib/yjs'
 
 import { cardsAtom } from './useCardsAtom'
 
@@ -14,6 +14,9 @@ export default function YJSProvider({ children }: Props) {
   const setCards = useSetAtom(cardsAtom)
   useEffect(() => {
     cardsArray.observe(() => {
+      setCards(cardsArray.toJSON())
+    })
+    ydoc.whenLoaded.then(() => {
       setCards(cardsArray.toJSON())
     })
   }, [])

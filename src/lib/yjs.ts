@@ -1,5 +1,4 @@
-// @ts-ignore
-import { WebrtcProvider } from 'y-webrtc'
+import YPartyKitProvider from 'y-partykit/provider'
 import * as Y from 'yjs'
 
 import { CardType } from './types'
@@ -11,7 +10,4 @@ export const ydoc = new Y.Doc()
 export const cardsArray = ydoc.getArray<CardType>('cards')
 
 // Share the Yjs document with other users via WebRTC
-if (typeof window !== 'undefined')
-  new WebrtcProvider('active-users', ydoc, {
-    signaling: ['ws://localhost:4444'],
-  })
+new YPartyKitProvider(process.env.PARTKIT_HOST!, 'reactDND', ydoc)
