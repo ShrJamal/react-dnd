@@ -5,13 +5,8 @@ import { createStore } from 'jotai'
 import { DevTools } from 'jotai-devtools'
 import { Provider } from 'jotai/react'
 
-import { CardType } from '~/lib/types'
-
-import { cardsAtom } from './useCardsAtom'
-
 type Props = {
   children?: ReactNode
-  initCards: CardType[]
 }
 export default function JotaiProvider({ children }: Props) {
   const [store] = useState(() => createStore())

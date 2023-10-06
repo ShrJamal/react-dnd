@@ -10,8 +10,8 @@ import YJSProvider from './YJSProvider'
 export default async function BoardPage() {
   const cards = await fetchCards()
   return (
-    <JotaiProvider initCards={cards}>
-      <YJSProvider>
+    <JotaiProvider>
+      <YJSProvider initCards={cards}>
         <div className="flex-1 overflow-scroll board">
           <ZoomableContainer>
             <KanbanBoard />

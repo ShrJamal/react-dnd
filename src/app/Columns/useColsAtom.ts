@@ -1,5 +1,4 @@
-import { atom, useAtom, useAtomValue } from 'jotai'
-import { splitAtom } from 'jotai/utils'
+import { atom, useAtomValue } from 'jotai'
 
 import { cardsAtom } from '../useCardsAtom'
 
